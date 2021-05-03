@@ -1,0 +1,8 @@
+[package]
+name = "common"
+version = "0.0.0"
+authors = ["Justen <justenboykin@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+serde_yaml = {version = "0.8"}

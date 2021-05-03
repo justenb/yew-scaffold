@@ -1,0 +1,42 @@
+[env]
+SERVE_PORT = 4000
+DOCKER_ID = ""
+
+[tasks.format]
+install_crate = "rustfmt"
+command = "cargo"
+args = ["fmt", "--", "--emit=files"]
+
+[tasks.serve]
+workspace = false
+command = "cargo"
+args = ["run", "-- serve"]
+
+[tasks.clean]
+command = "cargo"
+args = ["clean"]
+
+[tasks.build]
+workspace = false
+command = "cargo"
+args = ["run", "-- build"]
+
+[tasks.docker-build]
+workspace = false
+description = "builds container"
+script = [ "docker build -t $CARGO_MAKE_PROJECT_NAME . --build-arg=serve_port=$SERVE_PORT"]
+
+[tasks.publish-docker]
+workspace = false
+description = "publish to container registry"
+script = [ 
+	"echo ${DOCKER_ID}",
+	"docker login",
+	"docker tag $CARGO_MAKE_PROJECT_NAME $DOCKER_ID/$CARGO_MAKE_PROJECT_NAME:latest",
+	"docker push $DOCKER_ID/$CARGO_MAKE_PROJECT_NAME:latest",
+]
+
+[tasks.test]
+command = "cargo"
+args = ["test"]
+dependencies = ["clean"]

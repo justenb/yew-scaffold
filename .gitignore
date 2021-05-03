@@ -1,0 +1,10 @@
+/web-target
+/target
+/build
+
+Cargo.lock
+*.code-workspace
+
+.idea/
+.vscode/
+*.sw*
