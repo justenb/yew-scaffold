@@ -11,8 +11,7 @@ This template integrates the following rust projects:
 
 &nbsp;
 
-
-![](https://assets.codepen.io/269372/template.png)&nbsp;
+![running the template](https://assets.codepen.io/269372/template.png)
 
 #### Using this template
 
