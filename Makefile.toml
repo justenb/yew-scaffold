@@ -10,7 +10,7 @@ args = ["fmt", "--", "--emit=files"]
 [tasks.serve]
 workspace = false
 command = "cargo"
-args = ["run", "-- serve"]
+args = ["run", "--" ,"serve"]
 
 [tasks.clean]
 command = "cargo"
@@ -19,7 +19,7 @@ args = ["clean"]
 [tasks.build]
 workspace = false
 command = "cargo"
-args = ["run", "-- build"]
+args = ["run", "--" ,"build"]
 
 [tasks.docker-build]
 workspace = false
